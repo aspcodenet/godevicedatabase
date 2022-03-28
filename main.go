@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 
 	for {
@@ -12,13 +10,13 @@ func main() {
 
 		switch selection {
 		case 1:
-			fmt.Println("Create device")
+			createDevice()
 		case 2:
-			fmt.Println("List all")
+			listAll()
 		case 3:
-			fmt.Println("Update device")
+			updateDevice()
 		case 4:
-			fmt.Println("Sök device")
+			searchDevice()
 		case 5:
 			//break would just break the switch!
 			return
