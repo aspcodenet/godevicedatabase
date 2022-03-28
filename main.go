@@ -5,27 +5,10 @@ import "fmt"
 func main() {
 
 	for {
+		showMenu()
 		var selection int
 
-		fmt.Println("1. Create device")
-		fmt.Println("2. List all")
-		fmt.Println("3. Update device")
-		fmt.Println("4. Sök")
-		fmt.Println("5. Exit")
-
-		fmt.Print("Val:")
-		_, err := fmt.Scanln(&selection)
-		if err != nil {
-			var clearbuf string
-			fmt.Scanln(&clearbuf)
-			fmt.Println("Inte valid nummer")
-			continue
-		}
-
-		if selection < 1 || selection > 5 {
-			fmt.Println("Ange ett tal mellan ett och fem tack")
-			continue
-		}
+		selection = inputIntData(1, 5, "Val")
 
 		switch selection {
 		case 1:
@@ -42,5 +25,8 @@ func main() {
 
 		}
 	}
-
+	// Kom ihåg lite rast också!
+	//SES kl 14:00 !
+	// Då kör vi  funktioner
+	// och refaktoriserar dessutom denna kod
 }
