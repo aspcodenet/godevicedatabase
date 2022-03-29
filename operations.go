@@ -72,14 +72,17 @@ func searchDevice(devices []Device) {
 	var ord string
 	fmt.Scanln(&ord)
 
+	t := tabby.New()
+	t.AddHeader("NAMN", "MANUFACTURER", "VIKT")
 	for _, device := range devices {
 		searchLower := strings.ToLower(ord)
 		nameLower := strings.ToLower(device.Name)
 		manufacturerLower := strings.ToLower(device.Manufacturer)
 
 		if strings.Contains(nameLower, searchLower) || strings.Contains(manufacturerLower, searchLower) {
-			fmt.Println(device)
+			t.AddLine(device.Name, device.Manufacturer, device.WeightInGrams)
 		}
 	}
+	t.Print()
 
 }
