@@ -1,11 +1,11 @@
 package main
 
-var devices = []string{}
-
 func main() {
+	var devices = []Device{}
 
-	devices = append(devices, "Temperature sensor A")
-	devices = append(devices, "Temperature sensor B")
+	devices = append(devices, Device{Name: "Temp sensor 1", WeightInGrams: 10, Manufacturer: "Hej A"})
+	devices = append(devices, Device{Name: "Temp sensor 2", WeightInGrams: 12, Manufacturer: "Hej B"})
+	devices = append(devices, Device{Name: "Temp sensor 3", WeightInGrams: 45, Manufacturer: "Hej A"})
 
 	for {
 		showMenu()
@@ -16,13 +16,13 @@ func main() {
 		switch selection {
 		case 1:
 			newDevice := createDevice()
-			devices = append(devices, newDevice)
+			devices = append(devices, *newDevice)
 		case 2:
-			listAll()
+			listAll(devices)
 		case 3:
-			updateDevice()
+			updateDevice(devices)
 		case 4:
-			searchDevice()
+			searchDevice(devices)
 			//1. fråga vad letar du efter  - > q
 		case 5:
 			//break would just break the switch!
