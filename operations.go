@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	"github.com/cheynewallace/tabby"
 )
 
 func createDevice() *Device {
@@ -26,9 +28,14 @@ func createDevice() *Device {
 
 func listAll(devices []Device) {
 	fmt.Println("***** Listing all *****")
+
+	t := tabby.New()
+	t.AddHeader("NAMN", "MANUFACTURER", "VIKT")
+
 	for _, varde := range devices {
-		fmt.Println(varde)
+		t.AddLine(varde.Name, varde.Manufacturer, varde.WeightInGrams)
 	}
+	t.Print()
 }
 
 func updateDevice(devices []Device) {
