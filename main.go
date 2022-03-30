@@ -1,11 +1,23 @@
 package main
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 func main() {
 	var devices = []Device{}
 
-	devices = append(devices, Device{Name: "Temp sensor 1", WeightInGrams: 10, Manufacturer: "Hej A"})
-	devices = append(devices, Device{Name: "Temp sensor 2", WeightInGrams: 12, Manufacturer: "Hej B"})
-	devices = append(devices, Device{Name: "Temp sensor 3", WeightInGrams: 45, Manufacturer: "Hej A"})
+	// var jsonText = `[{"Name":"Temp sensor 1","WeightInGrams":10,"Manufacturer":"Hej A"},{"Name":"Temp sensor 2","WeightInGrams":12,"Manufacturer":"Hej B"},{"Name":"Temp sensor 3","WeightInGrams":45,"Manufacturer":"Hej A"}]`
+	// json.Unmarshal([]byte(jsonText), &devices)
+
+	// devices = append(devices, Device{Name: "Temp sensor 1", WeightInGrams: 10, Manufacturer: "Hej A"})
+	// devices = append(devices, Device{Name: "Temp sensor 2", WeightInGrams: 12, Manufacturer: "Hej B"})
+	// devices = append(devices, Device{Name: "Temp sensor 3", WeightInGrams: 45, Manufacturer: "Hej A"})
+
+	byteS, _ := json.Marshal(devices)
+	s := string(byteS)
+	fmt.Println(s)
 
 	for {
 		showMenu()
